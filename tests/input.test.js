@@ -126,13 +126,136 @@ describe('isResetKey', () => {
 });
 
 describe('setupInputHandlers', () => {
-  test('should return null in non-browser environment', () => {
+  test('should return cleanup function', () => {
     const callbacks = {
       onDirectionChange: jest.fn(),
       onPause: jest.fn(),
       onReset: jest.fn()
     };
     const cleanup = setupInputHandlers(callbacks);
-    expect(cleanup).toBeNull();
+    expect(cleanup).toBeDefined();
+    expect(typeof cleanup).toBe('function');
+    
+    // Clean up
+    if (cleanup) cleanup();
+  });
+  
+  test('should call onDirectionChange when arrow key pressed', () => {
+    const callbacks = {
+      onDirectionChange: jest.fn(),
+      onPause: jest.fn(),
+      onReset: jest.fn()
+    };
+    const cleanup = setupInputHandlers(callbacks);
+    
+    // Simulate arrow key press
+    const event = new KeyboardEvent('keydown', { key: 'ArrowUp' });
+    document.dispatchEvent(event);
+    
+    expect(callbacks.onDirectionChange).toHaveBeenCalled();
+    
+    // Clean up
+    if (cleanup) cleanup();
+  });
+  
+  test('should call onPause when P key pressed', () => {
+    const callbacks = {
+      onDirectionChange: jest.fn(),
+      onPause: jest.fn(),
+      onReset: jest.fn()
+    };
+    const cleanup = setupInputHandlers(callbacks);
+    
+    // Simulate P key press
+    const event = new KeyboardEvent('keydown', { key: 'p' });
+    document.dispatchEvent(event);
+    
+    expect(callbacks.onPause).toHaveBeenCalled();
+    
+    // Clean up
+    if (cleanup) cleanup();
+  });
+  
+  test('should call onReset when SPACE key pressed', () => {
+    const callbacks = {
+      onDirectionChange: jest.fn(),
+      onPause: jest.fn(),
+      onReset: jest.fn()
+    };
+    const cleanup = setupInputHandlers(callbacks);
+    
+    // Simulate space key press
+    const event = new KeyboardEvent('keydown', { key: ' ' });
+    document.dispatchEvent(event);
+    
+    expect(callbacks.onReset).toHaveBeenCalled();
+    
+    // Clean up
+    if (cleanup) cleanup();
+  });
+  
+  test('should not call callbacks for unhandled keys', () => {
+    const callbacks = {
+      onDirectionChange: jest.fn(),
+      onPause: jest.fn(),
+      onReset: jest.fn()
+    };
+    const cleanup = setupInputHandlers(callbacks);
+    
+    // Simulate random key press
+    const event = new KeyboardEvent('keydown', { key: 'x' });
+    document.dispatchEvent(event);
+    
+    expect(callbacks.onDirectionChange).not.toHaveBeenCalled();
+    expect(callbacks.onPause).not.toHaveBeenCalled();
+    expect(callbacks.onReset).not.toHaveBeenCalled();
+    
+    // Clean up
+    if (cleanup) cleanup();
+  });
+  
+  test('should handle missing onDirectionChange callback', () => {
+    const callbacks = {
+      onPause: jest.fn(),
+      onReset: jest.fn()
+    };
+    const cleanup = setupInputHandlers(callbacks);
+    
+    // Simulate arrow key press
+    const event = new KeyboardEvent('keydown', { key: 'ArrowUp' });
+    expect(() => document.dispatchEvent(event)).not.toThrow();
+    
+    // Clean up
+    if (cleanup) cleanup();
+  });
+  
+  test('should handle missing onPause callback', () => {
+    const callbacks = {
+      onDirectionChange: jest.fn(),
+      onReset: jest.fn()
+    };
+    const cleanup = setupInputHandlers(callbacks);
+    
+    // Simulate P key press
+    const event = new KeyboardEvent('keydown', { key: 'p' });
+    expect(() => document.dispatchEvent(event)).not.toThrow();
+    
+    // Clean up
+    if (cleanup) cleanup();
+  });
+  
+  test('should handle missing onReset callback', () => {
+    const callbacks = {
+      onDirectionChange: jest.fn(),
+      onPause: jest.fn()
+    };
+    const cleanup = setupInputHandlers(callbacks);
+    
+    // Simulate space key press
+    const event = new KeyboardEvent('keydown', { key: ' ' });
+    expect(() => document.dispatchEvent(event)).not.toThrow();
+    
+    // Clean up
+    if (cleanup) cleanup();
   });
 });

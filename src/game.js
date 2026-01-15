@@ -106,10 +106,6 @@ function changeDirection(state, newDirection) {
     key => DIRECTIONS[key] === newDirection
   );
 
-  const currentDirectionName = Object.keys(DIRECTIONS).find(
-    key => DIRECTIONS[key] === state.direction
-  );
-
   if (oppositeDirections[directionName] === state.direction) {
     return state;
   }

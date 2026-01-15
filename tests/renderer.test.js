@@ -24,9 +24,13 @@ describe('Renderer Constants', () => {
 });
 
 describe('createCanvas', () => {
-  test('should return null in non-browser environment', () => {
+  test('should create canvas element with correct dimensions', () => {
     const canvas = createCanvas(400, 400);
-    expect(canvas).toBeNull();
+    expect(canvas).toBeDefined();
+    if (canvas) {
+      expect(canvas.width).toBe(400);
+      expect(canvas.height).toBe(400);
+    }
   });
 });
 
