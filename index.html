@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Snake Game Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐍 AI Snake Game</h1>
+            <p class="subtitle">A Tutorial on AI Agent Ecosystem</p>
+        </header>
+
+        <main>
+            <div class="game-wrapper">
+                <canvas id="gameCanvas"></canvas>
+            </div>
+
+            <div class="controls">
+                <h2>Controls</h2>
+                <div class="control-grid">
+                    <div class="control-item">
+                        <span class="key">↑ ↓ ← →</span>
+                        <span class="description">Arrow Keys</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="key">W A S D</span>
+                        <span class="description">Alternative Movement</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="key">P</span>
+                        <span class="description">Pause/Resume</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="key">SPACE</span>
+                        <span class="description">Restart (when game over)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info">
+                <h2>About This Tutorial</h2>
+                <p>
+                    This repository demonstrates how to build a complete Snake game 
+                    with an <strong>AI Agent Ecosystem</strong> including:
+                </p>
+                <ul>
+                    <li><strong>AGENTS.md</strong> - AI agent instructions for consistent development</li>
+                    <li><strong>Ruler</strong> - Centralized rules management across projects</li>
+                    <li><strong>Skills</strong> - Reusable agent capabilities and automation</li>
+                    <li><strong>Complete Test Suite</strong> - 90%+ test coverage</li>
+                    <li><strong>Documentation</strong> - Comprehensive guides and tutorials</li>
+                </ul>
+                <p>
+                    Learn how to structure projects for AI-assisted development with 
+                    proper testing, linting, and documentation practices.
+                </p>
+                <div class="cta">
+                    <a href="https://github.com/santoshshinde2012/ai-snake-game-tutorial" 
+                       class="btn" target="_blank">
+                        View on GitHub
+                    </a>
+                    <a href="docs/TUTORIAL.md" class="btn btn-secondary">
+                        Read Tutorial
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>
+                Created as a tutorial for AI-powered development workflows
+            </p>
+            <p>
+                <a href="https://github.com/santoshshinde2012/ai-snake-game-tutorial/blob/main/LICENSE">
+                    MIT License
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="src/game.js"></script>
+    <script src="src/renderer.js"></script>
+    <script src="src/input.js"></script>
+    <script src="src/main.js"></script>
+    <script>
+        if (typeof window !== 'undefined') {
+            window.addEventListener('DOMContentLoaded', () => {
+                const { initGame } = window;
+                initGame('gameCanvas');
+            });
+        }
+    </script>
+</body>
+</html>

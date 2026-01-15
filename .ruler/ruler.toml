@@ -1,0 +1,50 @@
+[ruler]
+version = "1.0.0"
+enabled = true
+auto_update = false
+
+[rules]
+# Apply rules to all files except those in exclude list
+apply_to = ["**/*.js", "**/*.json", "**/*.md"]
+exclude = [
+  "node_modules/**",
+  "coverage/**",
+  "dist/**",
+  "*.min.js"
+]
+
+[inheritance]
+# Local project rules take priority over ruler rules
+priority = "local"
+# Local rules override ruler rules (not merge)
+merge_strategy = "override"
+
+[quality]
+# Code quality requirements
+test_coverage_min = 80
+lint_errors_max = 0
+lint_warnings_max = 10
+
+[testing]
+# Testing configuration
+framework = "jest"
+require_tests = true
+min_coverage = 80
+
+[documentation]
+# Documentation requirements
+require_readme = true
+require_contributing = true
+require_license = true
+
+[git]
+# Git workflow requirements
+require_pr = true
+require_review = true
+conventional_commits = true
+
+[security]
+# Security requirements
+no_secrets = true
+dependency_scanning = true
+security_updates_max_days = 30

@@ -1,0 +1,22 @@
+[ruler]
+version = "1.0.0"
+enabled = true
+
+[rules]
+apply_to = ["**/*.js", "**/*.json", "**/*.md"]
+exclude = ["node_modules/**", "coverage/**"]
+
+[inheritance]
+priority = "local"
+merge_strategy = "override"
+
+[quality]
+test_coverage_min = 80
+lint_errors_max = 0
+
+[testing]
+framework = "jest"
+require_tests = true
+
+[documentation]
+require_readme = true

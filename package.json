@@ -1,0 +1,60 @@
+{
+  "name": "ai-snake-game-tutorial",
+  "version": "1.0.0",
+  "description": "A comprehensive tutorial on building a Snake game with AI Agent Ecosystem support",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node -e \"console.log('Open index.html in your browser to play the game')\"",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint src tests",
+    "lint:fix": "eslint src tests --fix"
+  },
+  "keywords": [
+    "snake-game",
+    "ai",
+    "tutorial",
+    "game-development",
+    "javascript",
+    "canvas",
+    "agents",
+    "ruler",
+    "skills"
+  ],
+  "author": "AI Snake Game Contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "jest-canvas-mock": "^2.5.2",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/**/*.test.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "setupFiles": [
+      "jest-canvas-mock"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/santoshshinde2012/ai-snake-game-tutorial.git"
+  },
+  "bugs": {
+    "url": "https://github.com/santoshshinde2012/ai-snake-game-tutorial/issues"
+  },
+  "homepage": "https://github.com/santoshshinde2012/ai-snake-game-tutorial#readme"
+}
