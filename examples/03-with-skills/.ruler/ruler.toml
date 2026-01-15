@@ -1,0 +1,42 @@
+# Ruler Configuration
+# Syncs AGENTS.md to multiple AI coding tools
+
+version = "1.0"
+source = "AGENTS.md"
+
+# GitHub Copilot Instructions
+[[targets]]
+path = "../.github/copilot-instructions.md"
+format = "markdown"
+description = "GitHub Copilot instructions"
+
+# Cursor Rules
+[[targets]]
+path = "../.cursorrules"
+format = "markdown"
+description = "Cursor AI rules"
+
+# Continue Configuration
+[[targets]]
+path = "../.continuerc"
+format = "json"
+description = "Continue AI configuration"
+transform = "wrap_in_system_message"
+
+# Aider Configuration
+[[targets]]
+path = "../.aider.conf.yml"
+format = "yaml"
+description = "Aider AI configuration"
+
+# Validation rules
+[validation]
+require_sync = true
+check_formatting = true
+enforce_on_commit = false
+
+# Optional: Skills integration
+[skills]
+directory = "../.skills"
+auto_discover = true
+validate_on_sync = true
