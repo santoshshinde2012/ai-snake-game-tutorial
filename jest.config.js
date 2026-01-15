@@ -1,6 +1,9 @@
 export default {
   testEnvironment: 'jsdom',
   setupFiles: ['jest-canvas-mock'],
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1'
+  },
   coverageThreshold: {
     global: {
       branches: 90,

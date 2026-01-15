@@ -90,7 +90,7 @@ describe('Renderer', () => {
 
       renderFood(ctx, food);
 
-      expect(ctx.fillStyle).toBe('#FF5252');
+      expect(ctx.fillStyle.toLowerCase()).toBe('#ff5252');
     });
   });
 
@@ -184,7 +184,11 @@ describe('Renderer', () => {
       };
 
       const fillTextCalls = [];
-      ctx.fillText = jest.fn((...args) => fillTextCalls.push(args));
+      const originalFillText = ctx.fillText;
+      ctx.fillText = (...args) => {
+        fillTextCalls.push(args);
+        return originalFillText.apply(ctx, args);
+      };
 
       render(ctx, state);
 
