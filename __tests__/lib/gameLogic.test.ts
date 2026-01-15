@@ -178,6 +178,23 @@ describe('gameLogic', () => {
       );
       expect(isOnSnake).toBe(false);
     });
+
+    it('should handle nearly full grid by finding first available position', () => {
+      // Create a small grid almost completely filled
+      const gridSize = 3;
+      const snake: Position[] = [
+        { x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 },
+        { x: 0, y: 1 }, { x: 1, y: 1 }, { x: 2, y: 1 },
+        { x: 0, y: 2 }, { x: 1, y: 2 },
+        // (2, 2) is the only free position
+      ];
+      
+      const food = generateFood(snake, gridSize);
+      
+      // Should find the only available position
+      expect(food.x).toBe(2);
+      expect(food.y).toBe(2);
+    });
   });
 
   describe('growSnake', () => {

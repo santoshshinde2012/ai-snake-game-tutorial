@@ -68,10 +68,11 @@ export default function Home(): JSX.Element {
       newDirection = Direction.RIGHT;
     }
 
-    if (newDirection) {
+    if (newDirection !== null) {
+      const directionToUse = newDirection;
       setGameState(prev => ({
         ...prev,
-        direction: changeDirection(prev.direction, newDirection!),
+        direction: changeDirection(prev.direction, directionToUse),
       }));
     }
   }, [gameStarted, gameState.gameOver, gameState.paused]);

@@ -55,6 +55,9 @@ export const checkFoodCollision = (head: Position, food: Position): boolean => {
 };
 
 export const generateFood = (snake: Position[], gridSize: number): Position => {
+  // Safety check: if grid is nearly full, use deterministic approach
+  const maxAttempts = gridSize * gridSize;
+  let attempts = 0;
   let food: Position;
   let isOnSnake: boolean;
   
@@ -64,6 +67,22 @@ export const generateFood = (snake: Position[], gridSize: number): Position => {
       y: Math.floor(Math.random() * gridSize),
     };
     isOnSnake = snake.some(segment => segment.x === food.x && segment.y === food.y);
+    attempts++;
+    
+    // Safety exit: if too many attempts, find first available position
+    if (attempts >= maxAttempts) {
+      for (let y = 0; y < gridSize; y++) {
+        for (let x = 0; x < gridSize; x++) {
+          const pos = { x, y };
+          if (!snake.some(segment => segment.x === pos.x && segment.y === pos.y)) {
+            return pos;
+          }
+        }
+      }
+      // If no position found (grid is full), return random position
+      // This should never happen in practice as game ends before grid is full
+      return { x: 0, y: 0 };
+    }
   } while (isOnSnake);
   
   return food;
