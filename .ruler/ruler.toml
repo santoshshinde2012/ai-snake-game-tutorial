@@ -1,0 +1,16 @@
+[ruler]
+version = "1.0.0"
+enabled = true
+
+[rules]
+apply_to = ["**/*.ts", "**/*.tsx"]
+exclude = ["node_modules/**", ".next/**", "coverage/**"]
+
+[quality]
+test_coverage_min = 90
+lint_errors_max = 0
+
+[typescript]
+strict = true
+no_implicit_any = true
+explicit_return_types = true
