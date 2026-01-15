@@ -1,0 +1,16 @@
+[ruler]
+version = "1.0"
+
+[sync]
+# Auto-sync AGENTS.md to multiple AI tool formats
+targets = [
+  { tool = "github-copilot", path = ".github/copilot-instructions.md" },
+  { tool = "cursor", path = ".cursorrules" },
+  { tool = "claude", path = "CLAUDE.md" },
+  { tool = "aider", path = ".aider.conf.md" }
+]
+
+[validation]
+# Ensure consistency across tool configs
+enabled = true
+check_on_commit = true
