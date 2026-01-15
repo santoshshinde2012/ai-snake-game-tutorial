@@ -1,8 +1,7 @@
 import { useRef, useEffect } from 'react';
 
 export const useCanvas = (
-  draw: (ctx: CanvasRenderingContext2D) => void,
-  dependencies: React.DependencyList = []
+  draw: (ctx: CanvasRenderingContext2D) => void
 ): React.RefObject<HTMLCanvasElement> => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -14,7 +13,7 @@ export const useCanvas = (
     if (!context) return;
 
     draw(context);
-  }, [draw, ...dependencies]);
+  }, [draw]);
 
   return canvasRef;
 };

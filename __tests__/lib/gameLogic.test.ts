@@ -236,15 +236,30 @@ describe('gameLogic', () => {
 
     it('should set game over on self collision', () => {
       const state = createInitialState();
+      // Create a long snake where the head will hit its body (not tail)
+      // The snake forms a spiral pattern
       state.snake = [
-        { x: 5, y: 5 },
-        { x: 4, y: 5 },
-        { x: 4, y: 6 },
-        { x: 5, y: 6 },
+        { x: 10, y: 10 },  // head
+        { x: 9, y: 10 },
+        { x: 8, y: 10 },
+        { x: 7, y: 10 },
+        { x: 6, y: 10 },
+        { x: 5, y: 10 },
+        { x: 5, y: 11 },
+        { x: 5, y: 12 },
+        { x: 6, y: 12 },
+        { x: 7, y: 12 },
+        { x: 8, y: 12 },
+        { x: 9, y: 12 },
+        { x: 10, y: 12 },
+        { x: 10, y: 11 },  // body segment that will be hit
+        { x: 11, y: 11 },  // some tail segments so (10,11) isn't removed
+        { x: 12, y: 11 },
       ];
       state.direction = Direction.DOWN;
-      // Moving down will cause head to collide with body
-      const result = updateGameState(updateGameState(state));
+      
+      // Move down: head goes from (10,10) to (10,11) which collides with body at index 13
+      const result = updateGameState(state);
       expect(result.gameOver).toBe(true);
     });
 
