@@ -1,0 +1,227 @@
+:root {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-tertiary: #0f3460;
+  --accent: #4CAF50;
+  --accent-dark: #45a049;
+  --danger: #FF5252;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --border: #2a2a40;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px var(--shadow);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.game-wrapper {
+  position: relative;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+#gameCanvas {
+  display: block;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: #000;
+  width: 100%;
+  height: auto;
+}
+
+#gameOverlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+#gameOverlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay-content {
+  text-align: center;
+}
+
+.overlay-content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--danger);
+}
+
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.controls,
+.rules,
+.about {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--accent);
+}
+
+kbd {
+  display: inline-block;
+  padding: 4px 8px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px var(--shadow);
+  margin: 0 2px;
+}
+
+.control-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-item span {
+  color: var(--text-secondary);
+}
+
+.rules ul,
+.about ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.rules li,
+.about li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.rules li:last-child,
+.about li:last-child {
+  border-bottom: none;
+}
+
+.about p {
+  margin: 10px 0;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.about a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.about a:hover {
+  color: var(--accent-dark);
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .overlay-content h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.game-wrapper,
+.info-panel > * {
+  animation: fadeIn 0.5s ease;
+}

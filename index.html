@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Snake Game Tutorial - Learn the AI Agent Ecosystem through game development">
+  <title>AI Snake Game Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🐍 AI Snake Game</h1>
+      <p class="subtitle">Tutorial: AI Agent Ecosystem</p>
+    </header>
+
+    <main>
+      <div class="game-wrapper">
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <div id="gameOverlay" class="hidden">
+          <div class="overlay-content">
+            <h2>Game Over!</h2>
+            <p>Press <kbd>SPACE</kbd> to restart</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-panel">
+        <div class="controls">
+          <h3>Controls</h3>
+          <div class="control-grid">
+            <div class="control-item">
+              <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd>
+              <span>Move</span>
+            </div>
+            <div class="control-item">
+              <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd>
+              <span>Alt. Move</span>
+            </div>
+            <div class="control-item">
+              <kbd>SPACE</kbd>
+              <span>Restart</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rules">
+          <h3>Rules</h3>
+          <ul>
+            <li>🎯 Eat food to grow and score points (+10)</li>
+            <li>🚫 Don't hit walls or yourself</li>
+            <li>🎮 No 180° turns allowed</li>
+          </ul>
+        </div>
+
+        <div class="about">
+          <h3>About This Tutorial</h3>
+          <p>
+            This project demonstrates the <strong>AI Agent Ecosystem</strong>:
+          </p>
+          <ul>
+            <li><strong>AGENTS.md</strong> - Project context layer</li>
+            <li><strong>Ruler</strong> - Multi-tool distribution</li>
+            <li><strong>Agent Skills</strong> - Reusable capabilities</li>
+          </ul>
+          <p>
+            <a href="https://github.com/santoshshinde2012/ai-snake-game-tutorial" target="_blank">
+              View on GitHub →
+            </a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Built with ❤️ for the AI Agent Ecosystem Tutorial
+      </p>
+    </footer>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

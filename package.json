@@ -1,0 +1,39 @@
+{
+  "name": "ai-snake-game-tutorial",
+  "version": "1.0.0",
+  "description": "A production-ready tutorial repository teaching the AI Agent Ecosystem (AGENTS.md, Ruler, and Agent Skills) through building a complete Snake game",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "snake-game",
+    "ai-agents",
+    "tutorial",
+    "javascript",
+    "game-development",
+    "jest",
+    "canvas",
+    "agents-md",
+    "ruler",
+    "agent-skills"
+  ],
+  "author": "AI Agent Ecosystem Tutorial",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/santoshshinde2012/ai-snake-game-tutorial.git"
+  },
+  "bugs": {
+    "url": "https://github.com/santoshshinde2012/ai-snake-game-tutorial/issues"
+  },
+  "homepage": "https://github.com/santoshshinde2012/ai-snake-game-tutorial#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-canvas-mock": "^2.5.2",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
